@@ -1,20 +1,38 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="content">
+  <div id="main-container" class="container-center">
+    <div>
+      <form [formGroup]='dateForm'>
+        <input type="text" placeholder="Datum från..." formControlName="dateFrom" name="dateFrom">
+        <input type="text" placeholder="Datum till..." formControlName="dateTo" name="dateTo">
+        <button class="" (click)="pickDateRange()">Välj</button>
+      </form>
+    </div>
+    <div *ngIf="chosenDateInterval">
+      {{chosenDateInterval}}
+    </div>
+    <div class="container-center-horizontal">
+      <div class="chevron" (click)="previousMonth()"><i class="fa fa-chevron-left"></i></div>
+      <div class="current-month">{{date.format('MMMM')}} {{date.format('YYYY')}}</div>
+      <div class="chevron" (click)="nextMonth()"><i class="fa fa-chevron-right"></i></div>
+    </div>
+    <div class="calendar-container">
+      <div class="weekday-container">
+        <div class="days weekday">mån</div>
+        <div class="days weekday">tis</div>
+        <div class="days weekday">ons</div>
+        <div class="days weekday">tors</div>
+        <div class="days weekday">fre</div>
+        <div class="days weekday">lör</div>
+        <div class="days weekday">sön</div>
+      </div>
 
+      <div class="container">
+        <div *ngFor="let day of daysArray">
+          <div class="days calendar-days container-center" [ngClass]="{'inactive': !day, 'today': todayCheck(day), 'selected': isSelected(day)}"
+            (click)="selectedDate(day)">{{ day?.date() }}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

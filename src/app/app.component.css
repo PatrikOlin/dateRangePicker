@@ -1,0 +1,95 @@
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+a.active {
+  background-color: gray;
+}
+
+#main-container {
+  width: 322px;
+  flex-direction: column;
+  background: #e7e7e7;
+  padding: 15px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-center-horizontal {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.calendar-container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inactive {
+  opacity: .7;
+}
+
+.current-month {
+  padding: 5px 5px 5px 20px;
+  margin: auto;
+  text-align: center;
+  width: 120px;
+}
+
+.chevron {
+  padding: 5px 0px 0px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.days {
+  width: 40px;
+  border: 3px solid #e7e7e7;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-days {
+  height: 40px;
+  cursor: pointer;
+}
+
+.weekday {
+  cursor: default;
+  height: 20px;
+  background: #e7e7e7;
+}
+
+.weekday-container {
+  display: flex;
+  text-align: center;
+}
+
+.today {
+  color: rgb(88, 163, 190);
+}
+
+.selected {
+  background: rgba(243, 157, 45, 1);
+}
